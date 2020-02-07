@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Application.Atividades
 {
-    public class List
+    public class Lista
     {
         public class Query : IRequest<List<Atividade>> { }
         public class Handler : IRequestHandler<Query, List<Atividade>>
