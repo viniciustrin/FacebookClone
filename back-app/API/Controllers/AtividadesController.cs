@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Application.Atividades;
+﻿using Application.Atividades;
 using Domain;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace API.Controllers
 {
@@ -44,6 +42,12 @@ namespace API.Controllers
         {
             cmd.Id = id;
             return await _mediator.Send(cmd);
+        }
+
+        [HttpPut("{id}")]
+        public async Task<ActionResult<Unit>> Deletar(Guid id)
+        {
+            return await _mediator.Send(new Deletar.Command { Id = id });
         }
     }
 }
